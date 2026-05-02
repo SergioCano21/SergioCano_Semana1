@@ -110,145 +110,145 @@ E es correcta porque una asignación devuelve el valor que queda almacenado desp
 
 ### Pregunta 1
 
-**Respuesta:**
-**Justificación:**
+**Respuesta:** A, B, C, E, F y G  
+**Justificación:** Un switch en Java permite tipos como int, byte, short, char, sus wrappers, además de String y enum. También acepta var, pero solo porque en tiempo de compilación Java infiere el tipo real; es decir, var funciona siempre que el tipo inferido sea uno válido para switch. En cambio, long y double no están soportados.
 
 ### Pregunta 2
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** B  
+**Justificación:** La correcta es la B porque primero humidity se calcula como -4 + (4 \* 3) = 8. Luego temperature >= 4 es true, así que entra al primer if. Después humidity < 6 es false, por lo que se ejecuta el else más cercano (el del segundo if) y se imprime "Just Right".
 
 ### Pregunta 3
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** A, D, F y H  
+**Justificación:** Un for-each en Java solo funciona con arrays o colecciones que se pueden recorrer, por eso Double[][] y char[] son válidos porque son arrays, y List y Set también porque Java sabe cómo iterarlos. En cambio, Map no sirve directamente porque no es iterable por sí mismo (hay que usar entrySet()), y tipos como Object, String o Exception no funcionan porque no son ni arrays ni estructuras que Java pueda recorrer automáticamente.
 
 ### Pregunta 4
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** F  
+**Justificación:** El código no compila porque el switch expression no cubre todos los valores posibles de int. Le falta un default para esos casos. Sin default, el compilador no sabe qué valor darle a type y marca error.
 
 ### Pregunta 5
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** E  
+**Justificación:** El código tiene una línea que no compila: el System.out.print(b + ", ") después del continue en el segundo for. El compilador detecta que esa línea es unreachable (inalcanzable) porque el continue siempre salta al inicio del loop antes de llegar ahí, y Java no permite código inalcanzable. Los otros dos for están bien escritos y compilan sin problema.
 
 ### Pregunta 6
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** C, D y E  
+**Justificación:** Las tres correctas son C, D y E porque: el for evalúa su condición antes de ejecutar el cuerpo por lo que puede ejecutarse cero o más veces, el switch expression con String necesita default ya que hay infinitos valores posibles y el compilador debe garantizar que la variable siempre tenga un valor, y el do/while garantiza al menos una ejecución porque corre el cuerpo primero y evalúa la condición después. Las otras son incorrectas porque el for-each no funciona con todas las colecciones como Map, el while puede ejecutarse cero veces, y cada if solo puede tener un else.
 
 ### Pregunta 7
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** B y D  
+**Justificación:** A falla porque empieza en weather.length y eso está fuera del array. C no compila porque i no está definido en el cuerpo. E no compila porque repite int en la declaración. F salta el primer elemento porque empieza en i=1. Solo B recorre el array en orden y D lo recorre al revés, ambas correctamente.
 
 ### Pregunta 8
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** G  
+**Justificación:** Dos líneas no compilan, la línea 36, bat <= 20 no compila porque si o no es un Long, la variable bat no está en scope (flow scoping). En la línea 38, default no existe en un if/else, eso solo es válido en un switch. Por eso hay dos errores de compilación.
 
 ### Pregunta 9
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** B, C y E  
+**Justificación:** El truco está en que el if sin llaves {} solo aplica al ; vacío, así que count++ siempre se ejecuta. B y E son equivalentes (break del loop interno), C hace continue al loop externo, y los tres caminos resultan en count = 2. A sale demasiado pronto con count = 1. D y F dejan correr demasiadas iteraciones resultando en count = 5.
 
 ### Pregunta 10
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** E  
+**Justificación:** Son 4 líneas con errores. Línea 15: continue no se puede usar en un switch. Línea 16: thursday no es una constante en tiempo de compilación, aunque sea final como parámetro no cuenta. Línea 18: Sunday no está marcado como final, ser "effectively final" no es suficiente en un switch. Línea 19: DayOfWeek.MONDAY es un enum, no un int, y el switch espera int.
 
 ### Pregunta 11
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** A  
+**Justificación:** Al pasar Animal.MAMMAL, el switch retorna 3 directamente en ese caso. Como es un switch expression con ->, no hay fall-through ni nada raro, simplemente asigna 3 a type y luego se imprime. Además, el default es opcional porque ya se cubren todos los valores del enum.
 
 ### Pregunta 12
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** C  
+**Justificación:** El ciclo se ejecuta dos veces: en la primera iteración sing baja a 7, squawk sube a 4 y notes se vuelve 11; en la segunda sing baja a 6, squawk sube a 6 y se suma 6 + 6, dejando notes en 23; después la condición sing > squawk ya no se cumple (6 > 6 es false) y el programa imprime 23.
 
 ### Pregunta 13
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** G  
+**Justificación:** El código no compila porque en la línea del while faltan paréntesis (while (keepGoing);), que son obligatorios en Java. No es un problema de lógica sino de sintaxis. Si se corrigiera, el ciclo se ejecutaría dos veces y el resultado sería 11, pero tal como está escrito, no compila.
 
 ### Pregunta 14
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** B, D y F  
+**Justificación:** En un for-each el tipo de la variable se infiere según el tipo de los elementos que se están recorriendo: en new int[2] los elementos son int, así que penguin es int; en Character[] los elementos son Character, así que emu es Character; y en List<Integer> los elementos son Integer, por lo que macaw es Integer.
 
 ### Pregunta 15
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** F  
+**Justificación:** El código no compila, pero no por el tipo de datos sino por un error de sintaxis: en case 'B': 'C': falta la palabra clave case antes de 'C'. En un switch, cada valor debe declararse con case, o agruparse correctamente con comas. Por eso el compilador falla y la respuesta es None of the above.
 
 ### Pregunta 16
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** A, B y D  
+**Justificación:** Las correctas son A, B y D porque son las únicas que recorren el arreglo desde el último índice (length - 1) hasta el primero (0). En A se usa un índice que empieza en length y se va decrementando antes de acceder; en B se hace el clásico for inverso desde length - 1 hasta 0; y en D también se recorre hacia atrás aunque tiene una variable extra innecesaria. Las demás fallan: C y F acceden a wolf[length] (fuera de rango), y E genera un loop infinito.
 
 ### Pregunta 17
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** B y E  
+**Justificación:** Al final se imprimen los valores participants = 10, animals = 3 y performers = 3, así que los números distintos son 10 y 3. El primer while incrementa participants hasta que llega a 10, el do-while se ejecuta al menos una vez y deja animals en 3, y el for incrementa performers de -1 a 3 en saltos de 2.
 
 ### Pregunta 18
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** C y E  
+**Justificación:** Las correctas son C y E porque el pattern matching en Java se hace usando el operador instanceof, que permite verificar el tipo y declarar una variable en la misma expresión. Además, el flow scoping significa que esa variable solo está disponible en las partes del código donde el compilador puede garantizar que tiene ese tipo.
 
 ### Pregunta 19
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** E  
+**Justificación:** El código no compila porque la variable snake se declara dentro del bloque del do, pero se usa en la condición del while fuera de ese bloque, donde ya no existe (está fuera de alcance). Por eso el compilador marca error.
 
 ### Pregunta 20
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** A y E  
+**Justificación:** El problema principal es el for interno que es un loop infinito, así que necesitas evitar ejecutarlo o poder salir de él. En A, el break L2 hace que salgas del do-while antes de llegar al for, por lo que nunca entras al loop infinito. En E, el continue L2 permite salir del for y regresar al do-while, evitando que el programa se quede atrapado.
 
 ### Pregunta 21
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** E  
+**Justificación:** Hay cuatro líneas con errores: el switch no acepta Long como tipo (línea 22), en el case 10 falta yield y el punto y coma (línea 23), en el case 20 sobra un punto y coma extra (línea 24), y hay dos case 30 duplicados (líneas 25 y 26). Por eso se necesitan al menos cuatro correcciones para que compile.
 
 ### Pregunta 22
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** E  
+**Justificación:** La correcta es la E (5 2 1) porque tailFeathers vale 3 y entra directamente al case 3, imprimiendo 5. Luego el while se ejecuta mientras sea mayor que 1: primero hace --tailFeathers (pasa de 3 a 2) e imprime 2, y en la siguiente iteración pasa de 2 a 1 e imprime 1. Después ya no entra al ciclo, así que el resultado final es 5 2 1.
 
 ### Pregunta 23
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** F  
+**Justificación:** El código no compila porque en la línea 19 hay un else if sin un if previo al que pertenezca (ya hay un else antes), lo cual es un error de sintaxis. Por eso ninguna salida aplica.
 
 ### Pregunta 24
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** G  
+**Justificación:** El código no compila porque el for-each en Java no usa in, sino :. Como la sintaxis está mal, ninguna opción de tipo importa. Si se corrigiera a for (var friend : friends), entonces sí funcionarían tipos como Set, int[] y Collection.
 
 ### Pregunta 25
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** D  
+**Justificación:** "violin" no es igual a "VIOLIN" (Java sí distingue mayúsculas), entonces entra al default. Como no hay break, sigue ejecutando los siguientes casos: primero hace p++ (-1 a 0), luego otro p++ (0 a 1) y al final ++p (1 a 2). Por eso termina en 2.
 
 ### Pregunta 26
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** F  
+**Justificación:** El código sí compila, pero entra en un loop infinito. El problema es que r solo se incrementa fuera del do-while, entonces dentro del loop la condición r <= 1 siempre se queda verdadera en la primera vuelta, haciendo que el do-while nunca termine y el programa se quede ejecutando para siempre.
 
 ### Pregunta 27
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** F  
+**Justificación:** El código no compila porque en el case 2 hay un if que solo hace yield "Green" si se cumple la condición, pero si no se cumple, no devuelve nada. En un switch expression todos los caminos deben retornar un valor, así que falta un yield en ese caso y por eso falla la compilación.
 
 ### Pregunta 28
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** F  
+**Justificación:** El código no compila porque se está declarando dos veces la variable guppy dentro del mismo flujo usando instanceof, lo cual no está permitido por el flow scoping. Eso causa un error de compilación, así que ninguna salida es válida.
 
 ### Pregunta 29
 
-**Respuesta:**  
-**Justificación:**
+**Respuesta:** C  
+**Justificación:** Se usa pre-incremento (++y), entonces el primer valor que imprime es -1 (no -2). El ciclo sigue mientras y <= 5, así que llega hasta imprimir 6: cuando y vale 5 aún entra, se incrementa a 6, se imprime, y luego ya se detiene porque 6 <= 5 es false. Por eso la salida es -1 0 1 2 3 4 5 6.
